@@ -167,7 +167,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
           <!-- PRE-FEASIBILITY: open upright triangle, teal outline -->
           <symbol id="sym-pre" viewBox="-9 -9 18 18">
-            <polygon points="0,-8 7.5,6 -7.5,6" fill="white" stroke="#009999" stroke-width="2" stroke-linejoin="round"/>
+            <polygon points="0,-8 7.5,6 -7.5,6" fill="#d0f4f6" stroke="#009999" stroke-width="2" stroke-linejoin="round"/>
           </symbol>
 
           <!-- FEASIBILITY DONE / FID: filled circle, teal -->
@@ -375,7 +375,7 @@ if ( ! defined( 'ABSPATH' ) ) {
               <div class="leg-group-title">Pre-feasibility</div>
               <div class="leg-row">
                 <svg width="22" height="22" viewBox="-9 -9 18 18">
-                  <polygon points="0,-8 7.5,6 -7.5,6" fill="white" stroke="#009999" stroke-width="2" stroke-linejoin="round"/>
+                  <polygon points="0,-8 7.5,6 -7.5,6" fill="#d0f4f6" stroke="#009999" stroke-width="2" stroke-linejoin="round"/>
                 </svg>
                 <span>Upright triangle — any product type</span>
               </div>
@@ -634,7 +634,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
               /* SVG snippets per symbol type */
               $sym_svgs = array(
-                'pre' => '<svg width="18" height="18" viewBox="-9 -9 18 18"><polygon points="0,-8 7.5,6 -7.5,6" fill="white" stroke="#009999" stroke-width="2" stroke-linejoin="round"/></svg>',
+                'pre' => '<svg width="18" height="18" viewBox="-9 -9 18 18"><polygon points="0,-8 7.5,6 -7.5,6" fill="#d0f4f6" stroke="#009999" stroke-width="2" stroke-linejoin="round"/></svg>',
                 'fid' => '<svg width="18" height="18" viewBox="-9 -9 18 18"><circle r="7.5" fill="#009999" stroke="#007777" stroke-width="1.5"/></svg>',
                 'con' => '<svg width="18" height="18" viewBox="-9 -9 18 18"><polygon points="0,8 7.5,-6 -7.5,-6" fill="rgba(204,85,0,0.15)" stroke="#cc5500" stroke-width="2" stroke-linejoin="round"/></svg>',
                 'ops' => '<svg width="18" height="18" viewBox="-9 -9 18 18"><rect x="-7.5" y="-7.5" width="15" height="15" rx="2" fill="#269c4e" stroke="#1a7a3a" stroke-width="1.5"/></svg>',
