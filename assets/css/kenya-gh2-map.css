@@ -51,7 +51,7 @@
 	gap: 20px;
 	align-items: flex-start;
 	width: 100%;
-	max-width: 1060px;
+	max-width: 1400px;
 	flex-wrap: wrap;
 	justify-content: center;
 }
@@ -63,8 +63,8 @@
 	box-shadow: var(--kgh2-shadow);
 	border: 1px solid var(--kgh2-border);
 	padding: 16px;
-	flex: 1 1 440px;
-	max-width: 560px;
+	flex: 1 1 600px;
+	max-width: 900px;
 }
 
 .kgh2-wrap .map-card,

@@ -192,7 +192,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         </defs>
 
         <!-- Background -->
-        <rect width="460" height="530" fill="#dce8f0" rx="10"/>
+        <rect width="460" height="530" fill="#c8e97f" rx="10"/>
 
         <!-- ══ KENYA COUNTY PATHS ══ -->
         <g transform="translate(39.7,20.0) scale(1.3062)" fill="#e8eff5" stroke="#b8ccd8" stroke-width="0.77">
@@ -337,7 +337,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         </g>
 
         <!-- ON-MAP LEGEND -->
-        <g transform="translate(14,325)">
+        <g transform="translate(330,325)">
           <rect width="116" height="110" rx="7" fill="rgba(255,255,255,0.93)" stroke="#c0ccd8" stroke-width="0.8"/>
           <text x="58" y="14" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="6.8" font-weight="700" fill="#1a3a5a" letter-spacing="0.1em">LEGEND</text>
 
