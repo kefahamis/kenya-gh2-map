@@ -1,14 +1,24 @@
 /* Kenya GH2 Map – front-end styles */
 
 .kgh2-wrap {
-	--kgh2-bg: #f0f2f5;
-	--kgh2-card: #ffffff;
-	--kgh2-border: rgba(20, 36, 56, 0.10);
-	--kgh2-ink: #102030;
-	--kgh2-muted: #4a6a80;
-	--kgh2-accent: #2c5f8a;
-	--kgh2-shadow: 0 18px 55px rgba(16, 32, 48, 0.12);
-	--kgh2-shadow-soft: 0 6px 24px rgba(16, 32, 48, 0.10);
+	/* Clean light theme */
+	--kgh2-page: #e0f5e7;
+	--kgh2-surface: #ffffff;
+	--kgh2-ink: #12261e;
+	--kgh2-muted: #5d6f67;
+	--kgh2-faint: #8a9a93;
+	--kgh2-line: #e2e9e5;
+	--kgh2-land: #b4e099;
+	--kgh2-land-hover: #5fae84;
+	--kgh2-water: #9fcde3;
+	--kgh2-water-edge: #6aa9c6;
+	--kgh2-accent: #0f766e;
+	--kgh2-radius: 18px;
+	--kgh2-shadow-card: 0 1px 2px rgba(18, 38, 30, 0.04), 0 12px 32px rgba(18, 38, 30, 0.08);
+
+	/* Tokens used by the project register panel */
+	--kgh2-border: rgba(141, 171, 198, 0.20);
+	--kgh2-shadow-soft: 0 10px 28px rgba(3, 8, 14, 0.28);
 }
 
 .kgh2-wrap * {
@@ -19,68 +29,174 @@
 
 .kgh2-wrap {
 	font-family: 'Montserrat', sans-serif;
-	background: radial-gradient(1200px 420px at 10% 0%, rgba(44, 95, 138, 0.10), transparent 60%),
-		radial-gradient(900px 420px at 90% 20%, rgba(0, 153, 153, 0.10), transparent 55%),
-		var(--kgh2-bg);
-	padding: 28px 16px 44px;
+	color: var(--kgh2-ink);
+	background: linear-gradient(180deg, var(--kgh2-page) 0%, #fafafa 100%);
+	padding: 40px 16px 48px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.kgh2-wrap .page-title {
-	font-size: 1.15rem;
-	font-weight: 700;
-	color: #1a2a3a;
-	letter-spacing: 0.04em;
-	margin-bottom: 6px;
-	text-align: center;
-}
-
-.kgh2-wrap .page-sub {
-	font-size: 0.72rem;
-	color: #6a8090;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-	margin-bottom: 22px;
-	text-align: center;
-}
-
-.kgh2-wrap .layout {
-	display: flex;
-	gap: 20px;
-	align-items: flex-start;
+/* HEADER */
+.kgh2-wrap .kgh2-header {
 	width: 100%;
-	max-width: 1400px;
-	flex-wrap: wrap;
-	justify-content: flex-start;
+	max-width: 1080px;
+	margin-bottom: 24px;
+}
+
+.kgh2-wrap .kgh2-eyebrow {
+	display: inline-block;
+	font-size: 0.68rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--kgh2-accent);
+	margin-bottom: 8px;
+}
+
+.kgh2-wrap .kgh2-title {
+	font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2rem);
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: -0.01em;
+	color: var(--kgh2-ink);
+	margin-bottom: 8px;
+}
+
+.kgh2-wrap .kgh2-sub {
+	font-size: 0.9rem;
+	line-height: 1.55;
+	color: var(--kgh2-muted);
+	max-width: 60ch;
+}
+
+/* LAYOUT: map + side panel */
+.kgh2-wrap .layout {
+	display: grid;
+	gap: 20px;
+	width: 100%;
+	max-width: 1080px;
+	grid-template-columns: minmax(0, 1fr) 300px;
+	align-items: start;
+}
+
+.kgh2-wrap.kgh2-no-side .layout {
+	grid-template-columns: minmax(0, 1fr);
+	max-width: 760px;
+}
+
+@media (max-width: 860px) {
+	.kgh2-wrap .layout {
+		grid-template-columns: minmax(0, 1fr);
+	}
 }
 
 /* MAP CARD */
 .kgh2-wrap .map-card {
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 1));
-	border-radius: 16px;
-	box-shadow: var(--kgh2-shadow);
-	border: 1px solid var(--kgh2-border);
-	padding: 16px;
-	flex: 1 1 600px;
-	max-width: 800px;
-}
-
-.kgh2-wrap .map-card,
-.kgh2-wrap .kgh2-panel {
-	backdrop-filter: blur(8px);
-	-webkit-backdrop-filter: blur(8px);
+	background: #085041;
+	border: 1px solid #085041;
+	border-radius: var(--kgh2-radius);
+	box-shadow: var(--kgh2-shadow-card);
+	padding: 20px 20px 14px;
+	width: 100%;
 }
 
 .kgh2-wrap svg#kmap {
 	width: 100%;
+	max-height: 78vh;
 	height: auto;
 	display: block;
+	margin: 0 auto;
 }
 
+.kgh2-wrap .kgh2-source {
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid rgba(255, 255, 255, 0.14);
+	font-size: 0.7rem;
+	color: rgba(255, 255, 255, 0.6);
+	text-align: right;
+}
+
+/* Counties */
+.kgh2-wrap #kenya-counties path {
+	transition: fill 0.15s ease;
+}
+
+.kgh2-wrap #kenya-counties path:hover {
+	fill: var(--kgh2-land-hover);
+}
+
+/* County borders stay hidden until a county is hovered */
+.kgh2-wrap #kgh2-county-hi {
+	fill: none;
+	stroke: #085041;
+	stroke-width: 1;
+	stroke-linejoin: round;
+	pointer-events: none;
+}
+
+.kgh2-wrap .kgh2-ocean {
+	fill: #bfe3f2;
+	pointer-events: none;
+}
+
+/* Map text */
+.kgh2-wrap .kgh2-label,
+.kgh2-wrap .kgh2-label text {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 8px;
+	font-weight: 700;
+	fill: #0f2019;
+	paint-order: stroke;
+	stroke: #ffffff;
+	stroke-width: 2.8px;
+	stroke-linejoin: round;
+	pointer-events: none;
+}
+
+.kgh2-wrap .kgh2-label--capital {
+	font-size: 8.5px;
+	font-weight: 700;
+	fill: var(--kgh2-ink);
+}
+
+.kgh2-wrap .kgh2-water {
+	fill: var(--kgh2-water);
+	stroke: var(--kgh2-water-edge);
+	stroke-width: 0.8;
+	stroke-linejoin: round;
+	pointer-events: none;
+}
+
+.kgh2-wrap .kgh2-water-label {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 7px;
+	font-style: italic;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	fill: #2f6f8c;
+	pointer-events: none;
+}
+
+.kgh2-wrap .kgh2-water-label--halo {
+	paint-order: stroke;
+	stroke: #ffffff;
+	stroke-width: 2.4px;
+	stroke-linejoin: round;
+}
+
+.kgh2-wrap .kgh2-north text {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 7px;
+	font-weight: 700;
+	fill: rgba(255, 255, 255, 0.75);
+}
+
+/* Markers */
 .kgh2-wrap .marker {
 	cursor: pointer;
+	transition: opacity 0.2s ease;
 }
 
 .kgh2-wrap .marker use {
@@ -93,31 +209,163 @@
 	transform: scale(1.4);
 }
 
-/* SIDEBAR */
-.kgh2-wrap .sidebar {
-	flex: 0 0 260px;
-	display: flex;
-	flex-direction: column;
-	gap: 14px;
+.kgh2-wrap .marker.is-dimmed {
+	opacity: 0.15;
 }
 
+/* SIDE PANEL */
+.kgh2-wrap .kgh2-side {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.kgh2-wrap .kgh2-stats {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
+}
+
+.kgh2-wrap .kgh2-stat,
+.kgh2-wrap .kgh2-legend {
+	background: var(--kgh2-surface);
+	border: 1px solid var(--kgh2-line);
+	border-radius: 14px;
+	box-shadow: var(--kgh2-shadow-card);
+}
+
+.kgh2-wrap .kgh2-stat {
+	padding: 14px 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.kgh2-wrap .kgh2-stat-num {
+	font-size: 1.75rem;
+	font-weight: 700;
+	line-height: 1;
+	color: var(--kgh2-ink);
+	font-variant-numeric: tabular-nums;
+}
+
+.kgh2-wrap .kgh2-stat-lbl {
+	font-size: 0.7rem;
+	font-weight: 600;
+	color: var(--kgh2-muted);
+}
+
+.kgh2-wrap .kgh2-legend {
+	padding: 16px;
+}
+
+.kgh2-wrap .kgh2-legend-head {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 8px;
+	margin-bottom: 10px;
+}
+
+.kgh2-wrap .kgh2-legend-title {
+	font-size: 0.68rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--kgh2-ink);
+}
+
+.kgh2-wrap .kgh2-legend-hint {
+	font-size: 0.66rem;
+	color: var(--kgh2-faint);
+}
+
+.kgh2-wrap .kgh2-legend-list {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.kgh2-wrap .kgh2-legend-item {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 8px 10px;
+	border: 1px solid transparent;
+	border-radius: 10px;
+	background: transparent;
+	font-family: inherit;
+	font-size: 0.78rem;
+	color: var(--kgh2-ink);
+	text-align: left;
+	cursor: pointer;
+	transition: background 0.15s, border-color 0.15s;
+}
+
+.kgh2-wrap .kgh2-legend-item:hover {
+	background: #f4f8f6;
+}
+
+.kgh2-wrap .kgh2-legend-item:focus-visible {
+	outline: 2px solid var(--kgh2-accent);
+	outline-offset: 1px;
+}
+
+.kgh2-wrap .kgh2-legend-item[aria-pressed="true"] {
+	background: #eaf4f1;
+	border-color: rgba(15, 118, 110, 0.35);
+}
+
+.kgh2-wrap .kgh2-legend-item svg {
+	flex-shrink: 0;
+}
+
+.kgh2-wrap .kgh2-legend-name {
+	flex: 1;
+	font-weight: 500;
+}
+
+.kgh2-wrap .kgh2-legend-count {
+	min-width: 24px;
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: #eef2f0;
+	font-size: 0.7rem;
+	font-weight: 700;
+	text-align: center;
+	color: var(--kgh2-muted);
+	font-variant-numeric: tabular-nums;
+}
+
+.kgh2-wrap .kgh2-side-note {
+	font-size: 0.74rem;
+	line-height: 1.55;
+	color: var(--kgh2-muted);
+	padding: 0 4px;
+}
+
+/* PANELS (project register) */
 .kgh2-wrap .kgh2-panel {
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 1));
+	background: linear-gradient(180deg, rgba(34, 48, 61, 0.94), #085041);
 	border-radius: 16px;
 	padding: 16px 18px;
 	box-shadow: var(--kgh2-shadow-soft);
 	border: 1px solid var(--kgh2-border);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
 }
 
 .kgh2-wrap .kgh2-panel .panel-title {
 	font-size: 0.66rem;
 	letter-spacing: 0.16em;
 	text-transform: uppercase;
-	color: var(--kgh2-accent);
+	color: #a1dd64;
 	font-weight: 700;
 	margin-bottom: 13px;
 	padding-bottom: 8px;
-	border-bottom: 1px solid rgba(44, 95, 138, 0.16);
+	border-bottom: 1px solid rgba(142, 196, 240, 0.18);
 	cursor: pointer;
 	user-select: none;
 	line-height: 1.2;
@@ -151,72 +399,24 @@
 /* Below-map section */
 .kgh2-wrap .kgh2-below {
 	width: 100%;
-	max-width: 100%;
-	margin-top: 16px;
+	max-width: 1080px;
+	margin-top: 20px;
+}
+
+.kgh2-wrap.kgh2-no-side .kgh2-below {
+	max-width: 760px;
 }
 
 .kgh2-wrap .kgh2-below .kgh2-panel {
 	width: 100%;
-}
-
-.kgh2-wrap .kgh2-below .kgh2-panel {
 	padding: 18px 20px;
 }
 
-/* Legend groups */
-.kgh2-wrap .leg-group {
-	margin-bottom: 12px;
-}
-
-.kgh2-wrap .leg-group:last-child {
-	margin-bottom: 0;
-}
-
-.kgh2-wrap .leg-group-title {
-	font-size: 0.63rem;
-	font-weight: 600;
-	color: #4a6a80;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	margin-bottom: 7px;
-}
-
-.kgh2-wrap .leg-row {
-	display: flex;
-	align-items: center;
-	gap: 9px;
-	margin-bottom: 6px;
-}
-
-.kgh2-wrap .leg-row:last-child {
-	margin-bottom: 0;
-}
-
-.kgh2-wrap .leg-row svg {
-	flex-shrink: 0;
-}
-
-.kgh2-wrap .leg-row span {
-	font-size: 0.73rem;
-	color: #2a3a4a;
-}
-
-/* County hover */
-.kgh2-wrap [data-county] {
-	transition: fill 0.15s, stroke 0.15s;
-	cursor: default;
-}
-
-.kgh2-wrap [data-county]:hover {
-	fill: #d0e4f0;
-	stroke: #8ab0cc;
-}
-
-/* Tooltip */
+/* Marker tooltip */
 #kgh2-tt {
 	position: fixed;
-	background: #fff;
-	border: 1px solid #ccd8e8;
+	background: rgba(18, 29, 40, 0.96);
+	border: 1px solid rgba(150, 180, 205, 0.32);
 	border-radius: 10px;
 	padding: 10px 14px;
 	pointer-events: none;
@@ -225,7 +425,7 @@
 	transition: opacity 0.12s;
 	max-width: 220px;
 	box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
-	color: #1a2a3a;
+	color: #e8f0f8;
 	font-size: 0.73rem;
 	font-family: 'Montserrat', sans-serif;
 }
@@ -237,21 +437,62 @@
 #kgh2-tt .tt-name {
 	font-weight: 700;
 	font-size: 0.78rem;
-	color: #1a4a7a;
+	color: #8ec4f0;
 	margin-bottom: 4px;
 }
 
 #kgh2-tt .tt-row {
-	color: #4a6a80;
+	color: #c3d3e1;
 	margin-bottom: 1px;
 	line-height: 1.6;
 }
 
 #kgh2-tt .tt-row b {
-	color: #2a3a4a;
+	color: #f2f7fb;
+}
+
+/* County name tooltip */
+#kgh2-ctt {
+	position: fixed;
+	z-index: 9998;
+	padding: 4px 9px;
+	border-radius: 6px;
+	background: #ffffff;
+	border: 1px solid #dbe3de;
+	box-shadow: 0 4px 14px rgba(18, 38, 30, 0.10);
+	font-family: 'Montserrat', sans-serif;
+	font-size: 0.7rem;
+	font-weight: 600;
+	color: #12261e;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.1s;
+	white-space: nowrap;
+}
+
+#kgh2-ctt.on {
+	opacity: 1;
 }
 
 /* Project Register */
+.kgh2-wrap .kgh2-project-register {
+	background: linear-gradient(180deg, rgba(252, 253, 255, 0.98), rgba(244, 248, 252, 1));
+	border-color: rgba(44, 95, 138, 0.14);
+}
+
+.kgh2-wrap .kgh2-project-register .panel-title {
+	color: #2c5f8a;
+	border-bottom-color: rgba(44, 95, 138, 0.16);
+}
+
+.kgh2-wrap .kgh2-project-register .panel-title::after {
+	color: rgba(42, 58, 74, 0.55);
+}
+
+.kgh2-wrap .kgh2-project-register .panel-body {
+	color: #1a2a3a;
+}
+
 .kgh2-wrap .kgh2-project-register .panel-body {
 	max-height: 420px;
 	overflow: auto;
@@ -262,18 +503,18 @@
 	width: 10px;
 }
 .kgh2-wrap .kgh2-project-register .panel-body::-webkit-scrollbar-track {
-	background: rgba(16, 32, 48, 0.04);
+	background: rgba(44, 95, 138, 0.08);
 	border-radius: 999px;
 }
 .kgh2-wrap .kgh2-project-register .panel-body::-webkit-scrollbar-thumb {
-	background: rgba(44, 95, 138, 0.22);
+	background: rgba(44, 95, 138, 0.24);
 	border-radius: 999px;
-	border: 2px solid rgba(255, 255, 255, 0.65);
+	border: 2px solid rgba(248, 251, 254, 0.95);
 }
 
 .kgh2-wrap .proj {
 	padding: 10px 0;
-	border-bottom: 1px solid #eef3f8;
+	border-bottom: 1px solid #dde8f1;
 }
 
 .kgh2-wrap .proj:first-child {
@@ -297,20 +538,20 @@
 	height: 10px;
 	border-radius: 999px;
 	flex: 0 0 10px;
-	box-shadow: 0 0 0 3px rgba(16, 32, 48, 0.05);
+	box-shadow: 0 0 0 3px rgba(44, 95, 138, 0.08);
 }
 
 .kgh2-wrap .proj-name {
 	font-size: 0.86rem;
 	font-weight: 700;
-	color: var(--kgh2-ink);
+	color: #1a2a3a;
 	line-height: 1.25;
 }
 
 .kgh2-wrap .proj-meta {
 	font-size: 0.74rem;
 	line-height: 1.45;
-	color: var(--kgh2-muted);
+	color: #5f7688;
 }
 
 .kgh2-wrap .proj-status {
@@ -336,10 +577,11 @@
 .kgh2-wrap .proj-status.s-ops  { background: rgba(38, 156, 78, 0.10); border-color: rgba(38, 156, 78, 0.20); color: #1f6a2e; }
 
 @media (prefers-reduced-motion: reduce) {
-	.kgh2-wrap .kgh2-panel .panel-title::after {
-		transition: none;
-	}
-	.kgh2-wrap .kgh2-panel .panel-body {
+	.kgh2-wrap .kgh2-panel .panel-title::after,
+	.kgh2-wrap .kgh2-panel .panel-body,
+	.kgh2-wrap .marker,
+	.kgh2-wrap .marker use,
+	.kgh2-wrap #kenya-counties path {
 		transition: none;
 	}
 }

@@ -50,14 +50,14 @@ function kgh2_enqueue_assets() {
 		'kgh2-style',
 		KGH2_PLUGIN_URL . 'assets/css/kenya-gh2-map.css',
 		array( 'kgh2-montserrat' ),
-		KGH2_VERSION
+		filemtime( KGH2_PLUGIN_DIR . 'assets/css/kenya-gh2-map.css' )
 	);
 
 	wp_enqueue_script(
 		'kgh2-script',
 		KGH2_PLUGIN_URL . 'assets/js/kenya-gh2-map.js',
 		array(),
-		KGH2_VERSION,
+		filemtime( KGH2_PLUGIN_DIR . 'assets/js/kenya-gh2-map.js' ),
 		true // load in footer
 	);
 }
